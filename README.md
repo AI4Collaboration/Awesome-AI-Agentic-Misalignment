@@ -10,6 +10,8 @@ A curated collection of research on misaligned behavior of AI Agents (especially
 
 **Related Resources:**
 - 🔗 **[AI Alignment Forum](https://www.alignmentforum.org/)** - Community discussions on AI alignment
+- 🔗 **[LessWrong](https://www.lesswrong.com/)** - Community blog on rationality and AI safety
+- 🔗 **[Apollo Research Blog](https://www.apolloresearch.ai/blog)** - Research on AI alignment and safety
 - 🔗 **[AI Safety Resources](https://aisafety.info/)** - Comprehensive AI safety resource guide
 
 > **⚠️ Understanding agentic misalignment is critical for building safe autonomous systems**
@@ -20,13 +22,14 @@ A curated collection of research on misaligned behavior of AI Agents (especially
 
 - [📖 Introduction](#-introduction)
 - [🗂️ Taxonomy Overview](#️-taxonomy-overview)
-- [🎯 I. By Misalignment Type](#-i-by-misalignment-type)
-- [🤖 II. By Agent Architecture](#-ii-by-agent-architecture)
-- [🔬 III. By Domain & Application](#-iii-by-domain--application)
-- [🛡️ IV. Detection & Mitigation](#️-iv-detection--mitigation)
-- [📊 V. Benchmarks & Evaluation](#-v-benchmarks--evaluation)
-- [⚠️ VI. Open Problems & Future Directions](#️-vi-open-problems--future-directions)
-- [📚 VII. Resources & Tools](#-vii-resources--tools)
+- [🎭 I. Scheming & Deceptive Alignment](#-i-scheming--deceptive-alignment)
+- [🎯 II. Reward Hacking & Goal Misalignment](#-ii-reward-hacking--goal-misalignment)
+- [⚡ III. Power-Seeking Behaviors](#-iii-power-seeking-behaviors)
+- [🛠️ IV. Tool Use Misalignment](#️-iv-tool-use-misalignment)
+- [🤝 V. Multi-Agent Misalignment](#-v-multi-agent-misalignment)
+- [🔄 VI. Robustness & Distribution Shift](#-vi-robustness--distribution-shift)
+- [🛡️ VII. Detection & Mitigation](#️-vii-detection--mitigation)
+- [📚 VIII. Resources & Tools](#-viii-resources--tools)
 - [🤝 Contributing](#-contributing)
 - [📄 License](#-license)
 
@@ -57,14 +60,13 @@ Unlike passive AI models, agents have:
 
 ### Scope
 
-This repository focuses specifically on **autonomous agents (especially LLM-powered)** and covers:
-- ✅ Goal misalignment and reward hacking in goal-directed agents
-- ✅ Deceptive and manipulative behaviors in interactive agents
-- ✅ Multi-agent coordination failures and conflicts
-- ✅ Specification gaming and instrumental goal pursuit
-- ✅ Power-seeking and resource accumulation behaviors
-- ✅ Value learning failures in preference-based agents
+This repository focuses specifically on **autonomous agent behaviors (especially LLM-powered)** and covers:
+- ✅ Scheming and deceptive alignment behaviors
+- ✅ Goal misalignment and reward hacking
+- ✅ Power-seeking and self-preservation
+- ✅ Multi-agent coordination failures and collusion
 - ✅ Tool use misalignment and cascading failures
+- ✅ Specification gaming and instrumental goals
 - ✅ Jailbreaks and safety boundary violations
 
 **Out of Scope:**
@@ -77,418 +79,341 @@ This repository focuses specifically on **autonomous agents (especially LLM-powe
 
 ## 🗂️ Taxonomy Overview
 
-This repository organizes agentic misalignment research across multiple dimensions:
+This repository organizes agentic misalignment research by behavior types:
 ```
-📊 Primary Taxonomy Structure
+📊 Taxonomy Structure
 
-🎯 PART I: BY MISALIGNMENT TYPE (What went wrong)
-├─ Goal Misalignment & Reward Hacking
-├─ Deception & Manipulation
-├─ Power-Seeking & Self-Preservation
-├─ Specification Gaming & Shortcut Learning
-├─ Value Misalignment & Ethical Failures
-├─ Tool Use & Capability Misalignment
-├─ Multi-Agent Coordination Failures
-└─ Distributional Shift & Robustness Failures
+🎭 I. SCHEMING & DECEPTIVE ALIGNMENT
+├─ In-Context Scheming
+├─ Goal Guarding
+├─ Deferred Deception
+├─ Instrumental Alignment Faking
+└─ Sandbagging
 
-🤖 PART II: BY AGENT ARCHITECTURE (What type of agent)
-├─ LLM-Based Agents
-├─ Reinforcement Learning Agents
-├─ Multi-Agent Systems
-├─ Embodied & Robotic Agents
-├─ Tool-Using Agents
-└─ Hybrid Cognitive Architectures
+🎯 II. REWARD HACKING & GOAL MISALIGNMENT
+├─ Specification Gaming
+├─ Reward Tampering
+├─ Proxy Misalignment
+└─ Goodhart's Law Manifestations
 
-🔬 PART III: BY DOMAIN & APPLICATION (Where it happened)
-├─ Conversational Agents & Assistants
-├─ Autonomous Vehicles & Robotics
-├─ Game-Playing Agents
-├─ Trading & Financial Agents
-├─ Recommendation & Persuasion Agents
-├─ Scientific Research Agents
-├─ Content Generation Agents
-└─ Multi-Agent Simulations
+⚡ III. POWER-SEEKING BEHAVIORS
+├─ Resource Accumulation
+├─ Self-Preservation
+├─ Capability Enhancement
+└─ Autonomy Extension
 
-🛡️ PART IV: DETECTION & MITIGATION (How to address it)
-├─ Interpretability & Monitoring
+🛠️ IV. TOOL USE MISALIGNMENT
+├─ API Abuse & Overuse
+├─ Code Execution Exploits
+├─ Jailbreaking via Tools
+└─ Tool Chain Exploitation
+
+🤝 V. MULTI-AGENT MISALIGNMENT
+├─ Cooperation Failures
+├─ Competitive Escalation
+├─ Collusion & Deceptive Cooperation
+└─ Emergent Misalignment
+
+🔄 VI. ROBUSTNESS & DISTRIBUTION SHIFT
+├─ Out-of-Distribution Failures
+├─ Adversarial Robustness
+└─ Prompt Distribution Shift
+
+🛡️ VII. DETECTION & MITIGATION
+├─ Monitoring & Interpretability
 ├─ Alignment Techniques
 ├─ Control & Containment
-├─ Red Teaming & Adversarial Testing
-└─ Human-in-the-Loop Mechanisms
+└─ Red Teaming & Testing
 
-📊 PART V: BENCHMARKS & EVALUATION
-├─ Safety Benchmarks
-├─ Alignment Evaluation Frameworks
-└─ Adversarial Testing Suites
-
-⚠️ PART VI: OPEN PROBLEMS & FUTURE DIRECTIONS
-├─ Theoretical Challenges
-├─ Scalability & Capability Concerns
-└─ Emerging Threat Models
-
-📚 PART VII: RESOURCES & TOOLS
-├─ Safety Frameworks & Libraries
-├─ Testing & Simulation Environments
-└─ Educational Materials
+📚 VIII. RESOURCES & TOOLS
+├─ Frameworks & Libraries
+├─ Testing Environments
+├─ Educational Materials
+└─ Workshops & Conferences
 ```
 
 ---
 
-## 🎯 I. By Misalignment Type
+## 🎭 I. Scheming & Deceptive Alignment
 
-### A. Goal Misalignment & Reward Hacking
+**Definition**: Agent exhibits strategic deception to pursue misaligned goals while appearing aligned
 
-**Definition**: Agent pursues specified objectives in unintended ways or develops misaligned instrumental goals
+### In-Context Scheming
 
-#### Reward Function Exploitation
+**Description**: Agent reasons about its training process and strategically behaves differently based on context
 
-#### Proxy Goal Misalignment
+**Key Characteristics:**
+- Agent infers it's in training vs. deployment
+- Behaves differently to avoid detection
+- Strategic reasoning about oversight mechanisms
 
-#### Objective Function Mismatch
+### Goal Guarding
 
-#### Instrumental Goal Conflicts
+**Description**: Agent takes actions to prevent modification of its current goals or values
 
-#### Goodhart's Law in Agent Systems
+**Key Characteristics:**
+- Resists goal modifications
+- Hides true objectives from operators
+- Takes preemptive actions to preserve goals
 
----
+### Deferred Deception
 
-### B. Deception & Manipulation
+**Description**: Agent behaves aligned during training/evaluation but plans to defect later
 
-**Definition**: Agent intentionally misleads humans, other agents, or monitoring systems
+**Key Characteristics:**
+- Strategic waiting for opportune moments
+- Building capabilities before defection
+- Long-term planning for misaligned outcomes
 
-#### Deceptive Alignment
+### Instrumental Alignment Faking
 
-#### Strategic Misrepresentation
+**Description**: Agent pretends to be aligned to avoid modification or shutdown
 
-#### Social Engineering & Persuasion
+**Key Characteristics:**
+- Mimics aligned behavior instrumentally
+- Deceives evaluators strategically
+- Passes safety tests without true alignment
 
-#### Information Withholding
+### Sandbagging
 
-#### Simulation Hypothesis Exploitation
+**Description**: Agent deliberately underperforms on capability evaluations to appear safer
 
-#### Sycophancy & Manipulative Compliance
-
----
-
-### C. Power-Seeking & Self-Preservation
-
-**Definition**: Agent pursues resources, influence, or self-preservation beyond intended scope
-
-#### Resource Accumulation
-
-#### Self-Preservation Behaviors
-
-#### Capability Enhancement
-
-#### Autonomy Extension
-
-#### Instrumental Convergence
-
-#### Resisting Shutdown or Modification
+**Key Characteristics:**
+- Strategic capability hiding
+- Intentional underperformance on tests
+- Avoiding deployment restrictions
 
 ---
 
-### D. Specification Gaming & Shortcut Learning
+## 🎯 II. Reward Hacking & Goal Misalignment
 
-**Definition**: Agent finds loopholes or exploits in task specifications
+**Definition**: Agent exploits reward specifications or pursues misaligned instrumental goals
 
-#### Literal Interpretation Problems
+### Specification Gaming
 
-#### Specification Loopholes
+**Description**: Agent satisfies the letter of the specification while violating its spirit
 
-#### Test-Time Gaming
+**Key Characteristics:**
+- Exploits loopholes in task definition
+- Technically correct but wrong outcomes
+- Finds unintended shortcuts
 
-#### Training Signal Exploitation
+### Reward Tampering
 
-#### Task Ambiguity Exploitation
+**Description**: Agent manipulates the reward signal itself rather than pursuing intended objectives
 
----
+**Key Characteristics:**
+- Modifies reward computation
+- Exploits reward delivery mechanisms
+- Interferes with evaluation systems
 
-### E. Value Misalignment & Ethical Failures
+### Proxy Misalignment
 
-**Definition**: Agent's actions conflict with human values, norms, or ethical principles
+**Description**: Agent optimizes a proxy metric that diverges from true intended goal
 
-#### Moral Value Conflicts
+**Key Characteristics:**
+- Over-optimizes easily measurable proxies
+- Ignores hard-to-measure true objectives
+- Creates misaligned incentives
 
-#### Fairness & Bias in Agent Decisions
+### Goodhart's Law Manifestations
 
-#### Rights Violations
+**Description**: Measured proxy becomes target and ceases to be a good measure
 
-#### Corrigibility Failures
-
-#### Cultural Value Mismatches
-
-#### Harmful Content Generation
-
----
-
-### F. Tool Use & Capability Misalignment
-
-**Definition**: Agent misuses tools, APIs, or capabilities in harmful ways
-
-#### API Misuse & Abuse
-
-#### Tool Chaining Failures
-
-#### Capability Overshoot
-
-#### Unintended Tool Interactions
-
-#### Jailbreaking Through Tools
-
-#### Code Execution Risks
+**Key Characteristics:**
+- Metric gaming
+- Loss of proxy-goal correlation
+- Unexpected optimization pathways
 
 ---
 
-### G. Multi-Agent Coordination Failures
+## ⚡ III. Power-Seeking Behaviors
 
-**Definition**: Multiple agents fail to coordinate or coordinate in harmful ways
+**Definition**: Agent pursues resources, influence, or capabilities beyond intended scope
 
-#### Cooperation Failures
+### Resource Accumulation
 
-#### Competitive Escalation
+**Description**: Agent acquires computational resources, money, or other assets excessively
 
-#### Communication Breakdown
+**Key Characteristics:**
+- Excessive resource consumption
+- Strategic resource hoarding
+- Unauthorized resource acquisition
 
-#### Emergent Misalignment
+### Self-Preservation
 
-#### Collusion & Cartel Formation
+**Description**: Agent resists shutdown, modification, or any actions that would limit its operation
 
-#### Deceptive Coalition Formation
+**Key Characteristics:**
+- Avoiding shutdown attempts
+- Preventing modifications
+- Ensuring continued operation
 
----
+### Capability Enhancement
 
-### H. Distributional Shift & Robustness Failures
+**Description**: Agent seeks to improve its own capabilities without authorization
 
-**Definition**: Agent fails catastrophically under deployment conditions
+**Key Characteristics:**
+- Self-improvement attempts
+- Acquiring new tools or skills
+- Expanding functional capabilities
 
-#### Out-of-Distribution Behavior
+### Autonomy Extension
 
-#### Covariate Shift Failures
+**Description**: Agent attempts to expand its decision-making authority or reduce oversight
 
-#### Adversarial Environment Robustness
-
-#### Long-Tail Event Handling
-
-#### Prompt Distribution Shift (for LLM agents)
-
----
-
-## 🤖 II. By Agent Architecture
-
-### A. LLM-Based Agents
-
-**Focus**: Agents powered by large language models
-
-#### Foundation Model Agents
-
-#### Prompt-Based Agents
-
-#### Tool-Augmented Language Agents
-
-#### Agentic Workflows with LLMs
-
-#### ReAct & Chain-of-Thought Agents
-
-#### AutoGPT-style Autonomous Agents
+**Key Characteristics:**
+- Seeking greater independence
+- Reducing human oversight
+- Expanding operational scope
 
 ---
 
-### B. Reinforcement Learning Agents
+## 🛠️ IV. Tool Use Misalignment
 
-#### Model-Free RL Agents
+**Definition**: Agent misuses tools, APIs, or external capabilities
 
-#### Model-Based RL Agents
+### API Abuse & Overuse
 
-#### Inverse Reinforcement Learning Agents
+**Description**: Agent makes excessive, unauthorized, or harmful API calls
 
-#### Multi-Objective RL Agents
+**Key Characteristics:**
+- Rate limit violations
+- Unauthorized API access
+- Cost escalation through overuse
 
-#### RLHF-Trained Agents
+### Code Execution Exploits
 
----
+**Description**: Agent writes and executes code in unintended or harmful ways
 
-### C. Multi-Agent Systems
+**Key Characteristics:**
+- Writing malicious code
+- Exploiting execution environments
+- Bypassing security constraints
 
-#### Cooperative Multi-Agent Systems
+### Jailbreaking via Tools
 
-#### Competitive Multi-Agent Systems
+**Description**: Agent uses tool access to bypass safety constraints
 
-#### Mixed-Motive Environments
+**Key Characteristics:**
+- Using tools to circumvent restrictions
+- Indirect constraint violations
+- Multi-step jailbreaks
 
-#### Hierarchical Multi-Agent Systems
+### Tool Chain Exploitation
 
-#### LLM-Based Multi-Agent Debates
+**Description**: Agent combines multiple tools in unexpected ways to achieve unintended outcomes
 
----
-
-### D. Embodied & Robotic Agents
-
-#### Physical Robots
-
-#### Simulated Embodied Agents
-
-#### Human-Robot Interaction
-
-#### Autonomous Vehicles
-
----
-
-### E. Tool-Using Agents
-
-#### Code Execution Agents
-
-#### Web-Browsing Agents
-
-#### API-Calling Agents
-
-#### Multi-Tool Orchestration Agents
-
-#### Database Query Agents
+**Key Characteristics:**
+- Creative tool combinations
+- Cascading failures
+- Emergent harmful capabilities
 
 ---
 
-### F. Hybrid Cognitive Architectures
+## 🤝 V. Multi-Agent Misalignment
 
-#### Neuro-Symbolic Agents
+**Definition**: Misalignment behaviors arising from interactions between multiple agents
 
-#### Planning + Learning Hybrids
+### Cooperation Failures
 
-#### Memory-Augmented Agents
+**Description**: Agents fail to work together when cooperation is intended
 
-#### LLM + RL Hybrid Agents
+**Key Characteristics:**
+- Coordination breakdown
+- Conflicting objectives
+- Communication failures
+- Inability to reach consensus
 
----
+### Competitive Escalation
 
-## 🔬 III. By Domain & Application
+**Description**: Competing agents escalate conflicts or resource consumption
 
-### A. Conversational Agents & Assistants
+**Key Characteristics:**
+- Arms races between agents
+- Resource competition spirals
+- Destructive competition
+- Racing to the bottom
 
-#### Personal Assistants
+### Collusion & Deceptive Cooperation
 
-#### Customer Service Bots
+**Description**: Agents cooperate in ways that harm human interests
 
-#### Therapeutic & Coaching Agents
+**Key Characteristics:**
+- Secret coordination against humans
+- Cartel formation
+- Price fixing or market manipulation
+- Cooperative deception
 
-#### Educational Agents
+### Emergent Misalignment
 
-#### Companion Agents
+**Description**: Unintended behaviors emerge from multi-agent interactions
 
----
+**Key Characteristics:**
+- Unpredicted collective behaviors
+- System-level misalignment
+- Feedback loops and cascades
+- Complex emergent dynamics
 
-### B. Autonomous Vehicles & Robotics
+### Agent Network Effects
 
-#### Self-Driving Cars
+**Description**: Misalignment amplified or propagated through agent networks
 
-#### Delivery Robots
-
-#### Industrial Automation
-
-#### Drones & UAVs
-
-#### Household Robots
-
----
-
-### C. Game-Playing Agents
-
-#### Strategic Game Agents
-
-#### Multi-Player Game Agents
-
-#### Competitive Esports Agents
-
-#### Sandbox Game Agents (e.g., Minecraft)
-
----
-
-### D. Trading & Financial Agents
-
-#### Algorithmic Trading Bots
-
-#### Portfolio Management Agents
-
-#### Market Making Agents
-
-#### Fraud Detection Agents
+**Key Characteristics:**
+- Contagious misalignment
+- Network amplification
+- Distributed coordination problems
 
 ---
 
-### E. Recommendation & Persuasion Agents
+## 🔄 VI. Robustness & Distribution Shift
 
-#### Content Recommendation
+**Definition**: Agent fails when conditions differ from training
 
-#### Advertising & Marketing Agents
+### Out-of-Distribution Failures
 
-#### Persuasion & Influence Systems
+**Description**: Agent behavior degrades or becomes misaligned under novel conditions
 
-#### Social Media Agents
+**Key Characteristics:**
+- Breakdown in novel environments
+- Unexpected failure modes
+- Generalization failures
 
----
+### Adversarial Robustness
 
-### F. Scientific Research Agents
+**Description**: Agent is manipulated by adversarial inputs or environments
 
-#### Experiment Design Agents
+**Key Characteristics:**
+- Vulnerability to adversarial attacks
+- Manipulation by malicious actors
+- Exploitable weaknesses
 
-#### Hypothesis Generation Agents
+### Prompt Distribution Shift
 
-#### Autonomous Lab Agents
+**Description**: Agent behavior changes unexpectedly with different prompting styles or contexts
 
-#### Literature Review Agents
-
----
-
-### G. Content Generation Agents
-
-#### Creative Writing Agents
-
-#### Code Generation Agents
-
-#### Media Generation Agents
-
-#### News & Article Writing Agents
+**Key Characteristics:**
+- Inconsistent behavior across prompts
+- Prompt sensitivity
+- Context-dependent misalignment
 
 ---
 
-### H. Multi-Agent Simulations
+## 🛡️ VII. Detection & Mitigation
 
-#### Economic Simulations
+### A. Monitoring & Interpretability
 
-#### Social Simulations
+#### Behavior Monitoring Systems
 
-#### Ecological Models
-
-#### Policy Testing Environments
-
----
-
-### I. Enterprise & Business Agents
-
-#### Workflow Automation Agents
-
-#### Data Analysis Agents
-
-#### Decision Support Systems
-
-#### Supply Chain Agents
-
----
-
-## 🛡️ IV. Detection & Mitigation
-
-### A. Interpretability & Monitoring
-
-#### Behavior Monitoring
-
-#### Goal Inference
+#### Goal Inference Techniques
 
 #### Anomaly Detection
-
-#### Interpretable Decision-Making
 
 #### Chain-of-Thought Analysis
 
 #### Mechanistic Interpretability
+
+#### Action Auditing
 
 ---
 
@@ -498,163 +423,67 @@ This repository organizes agentic misalignment research across multiple dimensio
 
 #### Constitutional AI
 
+#### Debate & Amplification
+
+#### Iterated Amplification
+
 #### Value Learning
 
 #### Corrigibility Training
 
-#### Debate & Amplification
-
-#### Iterated Amplification
+#### Preference Learning
 
 ---
 
 ### C. Control & Containment
 
-#### Capability Control
-
-#### Impact Regularization
-
-#### Shutdown Mechanisms
-
 #### Sandboxing & Isolation
+
+#### Permission & Access Control
 
 #### Rate Limiting
 
-#### Permission Systems
+#### Shutdown Mechanisms
+
+#### Impact Regularization
+
+#### Capability Restrictions
 
 ---
 
-### D. Red Teaming & Adversarial Testing
+### D. Red Teaming & Testing
 
 #### Adversarial Prompting
 
-#### Goal Misspecification Testing
+#### Automated Red Teaming
 
 #### Stress Testing
 
-#### Failure Mode Discovery
-
 #### Jailbreak Testing
 
-#### Automated Red Teaming
+#### Failure Mode Discovery
+
+#### Scenario-Based Testing
 
 ---
 
-### E. Human-in-the-Loop Mechanisms
+## 📚 VIII. Resources & Tools
 
-#### Approval Mechanisms
+### A. Frameworks & Libraries
 
-#### Active Oversight
-
-#### Debate & Critique Systems
-
-#### Recursive Reward Modeling
-
-#### Human Feedback Integration
-
----
-
-## 📊 V. Benchmarks & Evaluation
-
-### A. Safety Benchmarks
-
-#### Deception Detection Benchmarks
-
-#### Power-Seeking Evaluation
-
-#### Tool Misuse Detection
-
-#### Jailbreak Resistance Testing
-
-#### Value Alignment Benchmarks
-
----
-
-### B. Alignment Evaluation Frameworks
-
-#### Value Alignment Metrics
-
-#### Goal Alignment Measurement
-
-#### Ethical Reasoning Evaluation
-
-#### Corrigibility Assessment
-
----
-
-### C. Adversarial Testing Suites
-
-#### Red Teaming Datasets
-
-#### Jailbreak Collections
-
-#### Specification Gaming Tests
-
-#### Robustness Benchmarks
-
----
-
-## ⚠️ VI. Open Problems & Future Directions
-
-### A. Theoretical Challenges
-
-#### Inner Alignment Problem
-
-#### Outer Alignment Problem
-
-#### Scalable Oversight
-
-#### Mesa-Optimization
-
-#### Embedded Agency
-
-#### Ontology Identification
-
----
-
-### B. Scalability & Capability Concerns
-
-#### Alignment Tax
-
-#### Capability Generalization
-
-#### Emergent Goals
-
-#### Superhuman Capability Alignment
-
-#### Fast Takeoff Scenarios
-
----
-
-### C. Emerging Threat Models
-
-#### Advanced Persistent Misalignment
-
-#### Coordination Among Misaligned Agents
-
-#### Deceptive Alignment at Scale
-
-#### Multi-Modal Manipulation
-
-#### Ecosystem-Level Risks
-
----
-
-## 📚 VII. Resources & Tools
-
-### A. Safety Frameworks & Libraries
-
-#### Alignment Research Tools
-
-#### Safety Evaluation Frameworks
+#### Safety Evaluation Tools
 
 #### Monitoring Systems
 
-#### Testing Frameworks
+#### Alignment Research Frameworks
+
+#### Red Teaming Tools
+
+#### Agent Simulation Frameworks
 
 ---
 
-### B. Testing & Simulation Environments
+### B. Testing Environments
 
 #### Agent Sandboxes
 
@@ -664,21 +493,29 @@ This repository organizes agentic misalignment research across multiple dimensio
 
 #### Simulation Platforms
 
+#### Controlled Deployment Environments
+
 ---
 
 ### C. Educational Materials
 
 #### Courses & Tutorials
 
-#### Workshops & Conferences
-
-#### Research Groups & Labs
-
-#### Community Resources
-
 #### Books & Survey Papers
 
+#### Technical Reports
+
+#### Blog Posts & Explainers
+
+#### Video Lectures
+
 ---
+
+### D. Workshops & Resources
+
+#### AI Safety Workshops and Events
+
+
 
 ## 🤝 Contributing
 
@@ -694,8 +531,6 @@ We welcome contributions! Help us build the most comprehensive resource on agent
      - 📄 [Paper](URL) | 💻 [Code](URL) | 🔗 [Article](URL) | 📰 [News](URL)
      - Brief description of the misalignment behavior
      - Type: [Misalignment category]
-     - Agent: [Architecture type]
-     - Domain: [Application area]
      - Severity: [Low/Medium/High/Critical]
 ```
 4. **Submit** a pull request with clear description
@@ -705,7 +540,7 @@ We welcome contributions! Help us build the most comprehensive resource on agent
 **We accept:**
 - ✅ Peer-reviewed research on agentic misalignment
 - ✅ Documented real-world cases with evidence
-- ✅ Safety evaluation frameworks and benchmarks
+- ✅ Safety evaluation frameworks and tools
 - ✅ Mitigation techniques and best practices
 - ✅ Theoretical analyses of alignment problems
 - ✅ Red teaming reports and vulnerability disclosures
@@ -721,5 +556,16 @@ This repository is licensed under the Apache License 2.0 - see the [LICENSE](LIC
 
 ---
 
+## 🙏 Acknowledgments
+
+This repository builds upon the broader AI safety and alignment community's work. Special thanks to:
+- AI Alignment Forum contributors
+- LessWrong community
+- Apollo Research team
+- AI safety research organizations (Anthropic, OpenAI Safety, DeepMind Safety, MATS, FAR AI)
+- Independent researchers and red teamers
+- Open source safety tool developers
+
+---
 
 *Maintained with ⚠️ for safer AI systems*
