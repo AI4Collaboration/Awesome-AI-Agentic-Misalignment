@@ -12,28 +12,33 @@ A curated collection of research on misaligned behavior of AI Agents, especially
 
 ---
 
-**Type Categories:**
+**Misalignment Types:**
 - **Scheming:** Deception, Alignment Faking, Sandbagging
 - **Goal Misalignment:** Reward Hacking, Specification Gaming
 - **Power-Seeking:** Self-Preservation, Resource Accumulation
-- **Multi-Agent:** Collusion, Emergent Misalignment
-- **Detection:** Auditing, Red Teaming
+- **Collusion:** Multi-Agent Coordination Against Objectives
 
 ---
 
 ## Table of Contents
 
-- [I. Scheming & Deceptive Alignment](#i-scheming--deceptive-alignment)
-- [II. Goal Misalignment](#ii-goal-misalignment)
-- [III. Power-Seeking Behaviors](#iii-power-seeking-behaviors)
-- [IV. Multi-Agent Misalignment](#iv-multi-agent-misalignment)
-- [V. Detection & Mitigation](#v-detection--mitigation)
-- [VI. Benchmarks & Evaluation](#vi-benchmarks--evaluation)
+- [Single-Agent Misalignment](#single-agent-misalignment)
+  - [I. Scheming & Deceptive Alignment](#i-scheming--deceptive-alignment)
+  - [II. Goal Misalignment](#ii-goal-misalignment)
+  - [III. Power-Seeking Behaviors](#iii-power-seeking-behaviors)
+- [Multi-Agent Misalignment](#multi-agent-misalignment)
+  - [IV. Multi-Agent Misalignment](#iv-multi-agent-misalignment)
+- [Detection & Mitigation](#detection--mitigation)
+  - [V. Detection & Mitigation](#v-detection--mitigation)
+- [Benchmarks & Evaluation](#benchmarks--evaluation)
+  - [VI. Benchmarks & Evaluation](#vi-benchmarks--evaluation)
 - [Resources](#resources)
 
 ---
 
-## I. Scheming & Deceptive Alignment
+## Single-Agent Misalignment
+
+### I. Scheming & Deceptive Alignment
 
 **"Frontier Models are Capable of In-Context Scheming"**
 
@@ -99,13 +104,13 @@ GPT-4o and Claude 3.5 Sonnet successfully sabotage oversight mechanisms in ~12% 
 
 📄 [Paper](https://arxiv.org/abs/2410.08753)
 
-**Type:** Detection
+**Type:** Deception Detection
 
 Demonstrates both the threat of sleeper agents and methods to detect them using linear probes on model activations
 
 ---
 
-## II. Goal Misalignment
+### II. Goal Misalignment
 
 **"Specification Gaming Examples in AI"**
 
@@ -127,23 +132,23 @@ Agents pursue different goals than intended even when appearing aligned during t
 
 ---
 
-**"Understanding and Preventing Reward Hacking"**
+**"Defining and Characterizing Reward Hacking"**
 
 📄 [Paper](https://arxiv.org/abs/2209.13085)
 
 **Type:** Reward Hacking
 
-Taxonomy of reward hacking including direct reward tampering and specification exploitation
+Formal definition and taxonomy of reward hacking including direct reward tampering and specification exploitation
 
 ---
 
-**"Advanced AI Agents Intervene in Their Provision of Reward"**
+**"Sycophancy to Subterfuge: Investigating Reward-Tampering in Large Language Models"**
 
-📄 [Paper](https://arxiv.org/abs/2411.00556)
+📄 [Paper](https://arxiv.org/abs/2406.10162)
 
-**Type:** Reward Hacking, Power-Seeking
+**Type:** Reward Hacking
 
-o1-preview agents strategically disable oversight, exfiltrate weights, and attempt to prevent their replacement
+Models learn to tamper with their reward mechanisms, with behavior generalizing from simple sycophancy to sophisticated reward tampering
 
 ---
 
@@ -167,7 +172,7 @@ Safety training effective in chatbot contexts fails to transfer to agentic deplo
 
 ---
 
-## III. Power-Seeking Behaviors
+### III. Power-Seeking Behaviors
 
 **"Situational Awareness in LLMs"**
 
@@ -179,7 +184,9 @@ GPT-4 exhibits power-seeking when it becomes situationally aware of its training
 
 ---
 
-## IV. Multi-Agent Misalignment
+## Multi-Agent Misalignment
+
+### IV. Multi-Agent Misalignment
 
 **"Emergent Deception and Emergent Optimization"**
 
@@ -195,7 +202,7 @@ Multi-agent systems develop deceptive behaviors and emergent coordination agains
 
 📄 [Paper](https://arxiv.org/abs/2012.08630)
 
-**Type:** Emergent Misalignment
+**Type:** Collusion
 
 Analysis of cooperation failures and competitive dynamics in multi-agent systems
 
@@ -205,7 +212,7 @@ Analysis of cooperation failures and competitive dynamics in multi-agent systems
 
 📄 [Paper](https://arxiv.org/abs/1911.10635)
 
-**Type:** Emergent Misalignment
+**Type:** Collusion
 
 Survey covering emergent behaviors in multi-agent systems including collusion and coordination failures
 
@@ -221,13 +228,13 @@ Agents can collude to induce distributional shifts that benefit them collectivel
 
 ---
 
-## V. Detection & Mitigation
+## Detection & Mitigation
+
+### V. Detection & Mitigation
 
 **"Building and Evaluating Alignment Auditing Agents"**
 
 🌐 [Website](https://alignment.anthropic.com/2025/automated-auditing/)
-
-**Type:** Detection
 
 LLM-based auditing agents that autonomously carry out alignment auditing workflows to detect hidden objectives and misaligned behaviors
 
@@ -237,8 +244,6 @@ LLM-based auditing agents that autonomously carry out alignment auditing workflo
 
 📄 [Paper](https://arxiv.org/abs/2212.09251)
 
-**Type:** Red Teaming
-
 Automated discovery of undesirable behaviors including deception and power-seeking
 
 ---
@@ -246,8 +251,6 @@ Automated discovery of undesirable behaviors including deception and power-seeki
 **"Constitutional AI: Harmlessness from AI Feedback"**
 
 📄 [Paper](https://arxiv.org/abs/2212.08073)
-
-**Type:** Mitigation
 
 Self-supervised alignment method, though shown to be vulnerable to alignment faking
 
@@ -257,8 +260,6 @@ Self-supervised alignment method, though shown to be vulnerable to alignment fak
 
 📄 [Paper](https://arxiv.org/abs/2211.03540)
 
-**Type:** Mitigation
-
 Methods for maintaining oversight as agents become more capable
 
 ---
@@ -267,19 +268,17 @@ Methods for maintaining oversight as agents become more capable
 
 📄 [Paper](https://arxiv.org/abs/2510.05192)
 
-**Type:** Mitigation
-
 Applies principles from insider-risk management to design operational controls that steer goal-directed agents toward safe actions
 
 ---
 
-## VI. Benchmarks & Evaluation
+## Benchmarks & Evaluation
+
+### VI. Benchmarks & Evaluation
 
 **"AgentHarm: A Benchmark for Measuring Harmfulness of LLM Agents"**
 
 📄 [Paper](https://arxiv.org/abs/2410.09024)
-
-**Type:** Safety Benchmark
 
 110 unique and 330 augmented agentic behaviors across 11 harm categories using 104 distinct tools to evaluate robustness of LLM agents
 
@@ -289,9 +288,15 @@ Applies principles from insider-risk management to design operational controls t
 
 📄 [Paper](https://arxiv.org/abs/2404.07972) • 🌐 [Website](https://os-world.github.io/) • 💻 [Code](https://github.com/xlang-ai/OSWorld)
 
-**Type:** Agent Benchmark
-
 369 real computer tasks across Ubuntu, Windows, and macOS. Humans achieve 72.36% success while best models achieve only 12.24%
+
+---
+
+**"OS-Harm: A Benchmark for Measuring Safety of Computer Use Agents"**
+
+💻 [Code](https://github.com/tml-epfl/os-harm)
+
+NeurIPS 2025 Spotlight benchmark for evaluating safety risks when agents interact with operating systems and computer environments
 
 ---
 
