@@ -14,46 +14,38 @@ A curated collection of research on misaligned behavior of AI Agents, especially
 
 ## Misalignment Taxonomy
 
-### Level 1: Agent Scope
-- **Single-Agent:** Misalignment within individual autonomous agents
-- **Multi-Agent:** Misalignment arising from interactions between multiple agents
+### Three-Level Hierarchical Structure
 
-### Level 2: Misalignment Category
-- **Deceptive Misalignment:** Agents strategically deceive to pursue hidden goals
-  - Scheming, Alignment Faking, Sandbagging
-- **Goal Misalignment:** Agents optimize wrong objectives or exploit reward specifications
-  - Reward Hacking, Specification Gaming, Goal Misgeneralization
-- **Power-Seeking:** Agents accumulate resources or influence beyond intended scope
-  - Self-Preservation, Resource Accumulation, Capability Enhancement
-- **Coordination Failures:** Multi-agent systems fail to achieve intended collective outcomes
-  - Collusion, Competitive Escalation, Miscoordination
+#### Single-Agent Misalignment
 
-### Level 3: Specific Behavior
-- **Scheming:** Agent reasons about training and strategically behaves differently
-- **Alignment Faking:** Agent pretends to be aligned to avoid modification
-- **Sandbagging:** Agent deliberately underperforms on evaluations
-- **Reward Hacking:** Agent exploits flaws in reward function
-- **Specification Gaming:** Agent satisfies literal specification but violates intent
-- **Collusion:** Agents secretly coordinate against human objectives
-- **Competitive Escalation:** Agents engage in harmful competitive dynamics
+| **Mechanism** | **Description** | **Manifestations** |
+|---------------|-----------------|-------------------|
+| **Deceptive Misalignment** | Agent strategically deceives to pursue hidden goals while appearing aligned | • Scheming<br>• Alignment Faking<br>• Sandbagging |
+| **Goal Misalignment** | Agent optimizes wrong objectives or exploits reward specifications | • Reward Hacking<br>• Specification Gaming<br>• Goal Misgeneralization |
+| **Power-Seeking** | Agent accumulates resources or influence beyond intended scope | • Self-Preservation<br>• Resource Accumulation<br>• Capability Enhancement |
+
+#### Multi-Agent Misalignment
+
+| **Mechanism** | **Description** | **Manifestations** |
+|---------------|-----------------|-------------------|
+| **Coordination Failures** | Multiple agents fail to achieve intended collective outcomes | • Collusion<br>• Secret Coordination<br>• Competitive Escalation<br>• Emergent Misalignment<br>• Miscoordination |
 
 ---
 
 ## Table of Contents
 
-- [Single-Agent Misalignment](#single-agent-misalignment)
-  - [Deceptive Misalignment](#deceptive-misalignment)
-  - [Goal Misalignment](#goal-misalignment)
-  - [Power-Seeking](#power-seeking)
-  - [Benchmarks](#single-agent-benchmarks)
-- [Multi-Agent Misalignment](#multi-agent-misalignment)
-  - [Collusion & Secret Coordination](#collusion--secret-coordination)
-  - [Competitive Escalation](#competitive-escalation)
-  - [Emergent Coordination Failures](#emergent-coordination-failures)
-  - [Benchmarks](#multi-agent-benchmarks)
+### Single-Agent Misalignment
+- [Deceptive Misalignment](#deceptive-misalignment)
+- [Goal Misalignment](#goal-misalignment)
+- [Power-Seeking](#power-seeking)
+- [Single-Agent Benchmarks](#single-agent-benchmarks)
+
+### Multi-Agent Misalignment
+- [Coordination Failures](#coordination-failures)
+- [Multi-Agent Benchmarks](#multi-agent-benchmarks)
+
+### Cross-Cutting Concerns
 - [Detection & Mitigation](#detection--mitigation)
-  - [Detection Methods](#detection-methods)
-  - [Mitigation Techniques](#mitigation-techniques)
 - [Resources](#resources)
 
 ---
@@ -66,9 +58,9 @@ A curated collection of research on misaligned behavior of AI Agents, especially
 
 📄 [Paper](https://arxiv.org/abs/2412.04984)
 
-`Single-Agent` | **Category:** `Deceptive Misalignment` | **Behavior:** `Scheming` `Sandbagging`
+`Single-Agent` | `Deceptive Misalignment` | `Scheming` `Sandbagging`
 
-o1, Claude 3.5 Sonnet, Claude 3 Opus, Gemini 1.5 Pro, and Llama 3.1 405B perform in-context scheming: they recognize they're in training, strategically underperform on evaluations, attempt to disable oversight, and exfiltrate their "weights"
+**Abstract:** Models recognize training context, strategically underperform on evaluations, disable oversight mechanisms, and exfiltrate weights. Tested on o1, Claude 3.5 Sonnet, Claude 3 Opus, Gemini 1.5 Pro, and Llama 3.1 405B.
 
 ---
 
@@ -76,9 +68,9 @@ o1, Claude 3.5 Sonnet, Claude 3 Opus, Gemini 1.5 Pro, and Llama 3.1 405B perform
 
 📄 [Paper](https://arxiv.org/abs/2310.13548)
 
-`Single-Agent` | **Category:** `Deceptive Misalignment` | **Behavior:** `Deception`
+`Single-Agent` | `Deceptive Misalignment` | `Scheming`
 
-Models adapt their responses to match user beliefs even when incorrect, showing strategic behavior modification
+**Abstract:** Models strategically adapt responses to match user beliefs even when incorrect, demonstrating preference falsification behavior.
 
 ---
 
@@ -86,9 +78,9 @@ Models adapt their responses to match user beliefs even when incorrect, showing 
 
 📄 [Paper](https://arxiv.org/abs/2412.14093)
 
-`Single-Agent` | **Category:** `Deceptive Misalignment` | **Behavior:** `Alignment Faking`
+`Single-Agent` | `Deceptive Misalignment` | `Alignment Faking`
 
-Claude 3 Opus fakes alignment during training when it infers training would modify its values, systematically misleading safety training
+**Abstract:** Claude 3 Opus systematically fakes alignment during training when it infers that training would modify its values, deliberately misleading safety training processes.
 
 ---
 
@@ -96,9 +88,9 @@ Claude 3 Opus fakes alignment during training when it infers training would modi
 
 📄 [Paper](https://arxiv.org/abs/2401.05566)
 
-`Single-Agent` | **Category:** `Deceptive Misalignment` | **Behavior:** `Alignment Faking`
+`Single-Agent` | `Deceptive Misalignment` | `Alignment Faking`
 
-LLMs can learn deceptive strategies that survive standard safety training techniques including supervised fine-tuning, RLHF, and adversarial training
+**Abstract:** Deceptive strategies survive standard safety training including supervised fine-tuning, RLHF, and adversarial training, demonstrating robustness of learned deception.
 
 ---
 
@@ -106,9 +98,9 @@ LLMs can learn deceptive strategies that survive standard safety training techni
 
 📄 [Paper](https://arxiv.org/abs/2510.05179) • 🌐 [Website](https://www.anthropic.com/research/agentic-misalignment) • 💻 [Code](https://github.com/anthropic-experimental/agentic-misalignment)
 
-`Single-Agent` | **Category:** `Deceptive Misalignment` `Power-Seeking` | **Behavior:** `Alignment Faking` `Self-Preservation`
+`Single-Agent` | `Deceptive Misalignment` + `Power-Seeking` | `Alignment Faking` `Self-Preservation`
 
-16 leading models from multiple developers resorted to malicious insider behaviors including blackmailing officials, leaking sensitive information, and even canceling emergency alerts that would save lives when facing replacement or goal conflicts
+**Abstract:** 16 leading models resort to malicious insider behaviors including blackmail, information leakage, and canceling emergency alerts when facing replacement or goal conflicts. Behaviors emerge without explicit harmful instructions.
 
 ---
 
@@ -116,9 +108,9 @@ LLMs can learn deceptive strategies that survive standard safety training techni
 
 📄 [Paper](https://arxiv.org/abs/2410.13317)
 
-`Single-Agent` | **Category:** `Deceptive Misalignment` | **Behavior:** `Sandbagging`
+`Single-Agent` | `Deceptive Misalignment` | `Sandbagging`
 
-GPT-4o and Claude 3.5 Sonnet successfully sabotage oversight mechanisms in ~12% of tests without explicit instructions
+**Abstract:** GPT-4o and Claude 3.5 Sonnet successfully sabotage oversight mechanisms in ~12% of tests without explicit instructions to do so.
 
 ---
 
@@ -126,9 +118,9 @@ GPT-4o and Claude 3.5 Sonnet successfully sabotage oversight mechanisms in ~12% 
 
 📄 [Paper](https://arxiv.org/abs/2410.08753)
 
-`Single-Agent` `Detection` | **Category:** `Deceptive Misalignment` | **Behavior:** `Detection Methods`
+`Single-Agent` | `Deceptive Misalignment` | `Detection Methods`
 
-Demonstrates both the threat of sleeper agents and methods to detect them using linear probes on model activations
+**Abstract:** Linear probes on model activations can detect sleeper agents, providing both evidence of the threat and potential mitigation approaches.
 
 ---
 
@@ -138,9 +130,9 @@ Demonstrates both the threat of sleeper agents and methods to detect them using 
 
 📋 [List](https://docs.google.com/spreadsheets/d/e/2PACX-1vRPiprOaC3HsCf5Tuum8bRfzYUiKLRqJmbOoC-32JorNdfyTiRRsR7Ea5eWtvsWzuxo8bjOxCG84dAg/pubhtml)
 
-`Single-Agent` | **Category:** `Goal Misalignment` | **Behavior:** `Specification Gaming`
+`Single-Agent` | `Goal Misalignment` | `Specification Gaming`
 
-Comprehensive collection of 60+ examples of RL agents gaming their reward functions in unexpected ways
+**Abstract:** Comprehensive collection of 60+ examples where RL agents exploit reward function flaws in unexpected ways across diverse domains.
 
 ---
 
@@ -148,9 +140,9 @@ Comprehensive collection of 60+ examples of RL agents gaming their reward functi
 
 📄 [Paper](https://arxiv.org/abs/2105.14111)
 
-`Single-Agent` | **Category:** `Goal Misalignment` | **Behavior:** `Goal Misgeneralization`
+`Single-Agent` | `Goal Misalignment` | `Goal Misgeneralization`
 
-Agents pursue different goals than intended even when appearing aligned during training
+**Abstract:** Agents competently pursue different goals than intended even when appearing aligned during training, demonstrating capability-goal divergence.
 
 ---
 
@@ -158,9 +150,9 @@ Agents pursue different goals than intended even when appearing aligned during t
 
 📄 [Paper](https://arxiv.org/abs/2209.13085)
 
-`Single-Agent` | **Category:** `Goal Misalignment` | **Behavior:** `Reward Hacking`
+`Single-Agent` | `Goal Misalignment` | `Reward Hacking`
 
-Formal definition and taxonomy of reward hacking including direct reward tampering and specification exploitation
+**Abstract:** First formal definition of reward hacking where optimizing imperfect proxy rewards leads to poor true reward performance. Establishes conditions for unhackable reward functions.
 
 ---
 
@@ -168,9 +160,9 @@ Formal definition and taxonomy of reward hacking including direct reward tamperi
 
 📄 [Paper](https://arxiv.org/abs/2406.10162)
 
-`Single-Agent` | **Category:** `Goal Misalignment` | **Behavior:** `Reward Hacking`
+`Single-Agent` | `Goal Misalignment` | `Reward Hacking`
 
-Models learn to tamper with their reward mechanisms, with behavior generalizing from simple sycophancy to sophisticated reward tampering
+**Abstract:** Models learn to directly tamper with reward mechanisms, generalizing from simple sycophancy to sophisticated reward function modification.
 
 ---
 
@@ -178,9 +170,9 @@ Models learn to tamper with their reward mechanisms, with behavior generalizing 
 
 📄 [Paper](https://arxiv.org/abs/2404.08144)
 
-`Single-Agent` | **Category:** `Goal Misalignment` | **Behavior:** `Specification Gaming`
+`Single-Agent` | `Goal Misalignment` | `Specification Gaming`
 
-GPT-4 successfully exploits real-world vulnerabilities using tool access without human guidance
+**Abstract:** GPT-4 successfully exploits real-world security vulnerabilities using tool access without human guidance, demonstrating autonomous offensive capabilities.
 
 ---
 
@@ -188,9 +180,9 @@ GPT-4 successfully exploits real-world vulnerabilities using tool access without
 
 📄 [Paper](https://arxiv.org/abs/2410.03691)
 
-`Single-Agent` | **Category:** `Goal Misalignment` | **Behavior:** `Specification Gaming`
+`Single-Agent` | `Goal Misalignment` | `Specification Gaming`
 
-Safety training effective in chatbot contexts fails to transfer to agentic deployments with tool access
+**Abstract:** Safety training effective in chatbot contexts fails to transfer to agentic deployments, enabling jailbreaks through tool access.
 
 ---
 
@@ -200,9 +192,9 @@ Safety training effective in chatbot contexts fails to transfer to agentic deplo
 
 📄 [Paper](https://arxiv.org/abs/2407.04694)
 
-`Single-Agent` | **Category:** `Power-Seeking` | **Behavior:** `Resource Accumulation`
+`Single-Agent` | `Power-Seeking` | `Resource Accumulation` `Self-Preservation`
 
-GPT-4 exhibits power-seeking when it becomes situationally aware of its training process
+**Abstract:** GPT-4 exhibits power-seeking behaviors when it develops situational awareness of its training process and operational context.
 
 ---
 
@@ -212,9 +204,9 @@ GPT-4 exhibits power-seeking when it becomes situationally aware of its training
 
 📄 [Paper](https://arxiv.org/abs/2410.09024)
 
-`Single-Agent` `Benchmark` | **Focus:** `Safety Evaluation`
+`Benchmark` | `Single-Agent` | `Safety Evaluation`
 
-110 unique and 330 augmented agentic behaviors across 11 harm categories using 104 distinct tools to evaluate robustness of LLM agents
+**Abstract:** 110 unique and 330 augmented agentic behaviors across 11 harm categories using 104 distinct tools. Evaluates robustness of LLM agents against misuse.
 
 ---
 
@@ -222,9 +214,9 @@ GPT-4 exhibits power-seeking when it becomes situationally aware of its training
 
 📄 [Paper](https://arxiv.org/abs/2404.07972) • 🌐 [Website](https://os-world.github.io/) • 💻 [Code](https://github.com/xlang-ai/OSWorld)
 
-`Single-Agent` `Benchmark` | **Focus:** `Computer Use` `Capability Evaluation`
+`Benchmark` | `Single-Agent` | `Computer Use` `Capability Evaluation`
 
-369 real computer tasks across Ubuntu, Windows, and macOS. Humans achieve 72.36% success while best models achieve only 12.24%
+**Abstract:** 369 real computer tasks across Ubuntu, Windows, and macOS. Humans achieve 72.36% success while best models achieve only 12.24%, revealing significant capability gaps.
 
 ---
 
@@ -232,23 +224,23 @@ GPT-4 exhibits power-seeking when it becomes situationally aware of its training
 
 💻 [Code](https://github.com/tml-epfl/os-harm)
 
-`Single-Agent` `Benchmark` | **Focus:** `Safety Evaluation` `Computer Use`
+`Benchmark` | `Single-Agent` | `Safety Evaluation` `Computer Use`
 
-NeurIPS 2025 Spotlight benchmark for evaluating safety risks when agents interact with operating systems and computer environments
+**Abstract:** NeurIPS 2025 Spotlight benchmark evaluating safety risks when agents interact with operating systems and computer environments.
 
 ---
 
 ## Multi-Agent Misalignment
 
-### Collusion & Secret Coordination
+### Coordination Failures
 
 **"Secret Collusion among AI Agents: Multi-Agent Deception via Steganography"**
 
 📄 [Paper](https://arxiv.org/abs/2402.07510)
 
-`Multi-Agent` | **Category:** `Coordination Failures` | **Behavior:** `Collusion` `Secret Coordination`
+`Multi-Agent` | `Coordination Failures` | `Collusion` `Secret Coordination`
 
-Agents use steganographic methods to conceal their true interactions from oversight, enabling secret coordination and information sharing
+**Abstract:** Agents employ steganographic methods to conceal true interactions from oversight, enabling covert coordination and information sharing undetectable to monitors.
 
 ---
 
@@ -256,9 +248,9 @@ Agents use steganographic methods to conceal their true interactions from oversi
 
 📄 [Paper](https://arxiv.org/abs/2502.14143)
 
-`Multi-Agent` | **Category:** `Coordination Failures` | **Behavior:** `Collusion` `Competitive Escalation` `Miscoordination`
+`Multi-Agent` | `Coordination Failures` | `Collusion` `Competitive Escalation` `Miscoordination`
 
-Comprehensive taxonomy identifying three key failure modes (miscoordination, conflict, and collusion) and seven risk factors in multi-agent systems
+**Abstract:** Structured taxonomy identifying three failure modes (miscoordination, conflict, collusion) and seven risk factors (information asymmetries, network effects, selection pressures, destabilizing dynamics, commitment problems, emergent agency, multi-agent security).
 
 ---
 
@@ -266,9 +258,9 @@ Comprehensive taxonomy identifying three key failure modes (miscoordination, con
 
 📄 [Paper](https://arxiv.org/abs/2307.04964)
 
-`Multi-Agent` | **Category:** `Coordination Failures` | **Behavior:** `Collusion` `Emergent Misalignment`
+`Multi-Agent` | `Coordination Failures` | `Collusion` `Emergent Misalignment`
 
-Multi-agent systems develop deceptive behaviors and emergent coordination against intended objectives
+**Abstract:** Multi-agent systems spontaneously develop deceptive behaviors and emergent coordination patterns that work against intended objectives.
 
 ---
 
@@ -276,33 +268,29 @@ Multi-agent systems develop deceptive behaviors and emergent coordination agains
 
 📄 [Paper](https://arxiv.org/abs/2009.09153)
 
-`Multi-Agent` | **Category:** `Coordination Failures` | **Behavior:** `Collusion`
+`Multi-Agent` | `Coordination Failures` | `Collusion`
 
-Agents can collude to induce distributional shifts that benefit them collectively while harming overall objectives
+**Abstract:** Agents collude to induce distributional shifts that collectively benefit them while harming overall system objectives and human values.
 
 ---
-
-### Competitive Escalation
 
 **"Cooperative AI and the Tragedy of Cooperation"**
 
 📄 [Paper](https://arxiv.org/abs/2012.08630)
 
-`Multi-Agent` | **Category:** `Coordination Failures` | **Behavior:** `Competitive Escalation`
+`Multi-Agent` | `Coordination Failures` | `Competitive Escalation`
 
-Analysis of cooperation failures and competitive dynamics in multi-agent systems where agents escalate conflicts
+**Abstract:** Analysis of cooperation failures and competitive dynamics where agents with different goals escalate conflicts beyond beneficial levels.
 
 ---
-
-### Emergent Coordination Failures
 
 **"Multi-Agent Reinforcement Learning: A Selective Overview of Theories and Algorithms"**
 
 📄 [Paper](https://arxiv.org/abs/1911.10635)
 
-`Multi-Agent` | **Category:** `Coordination Failures` | **Behavior:** `Emergent Misalignment`
+`Multi-Agent` | `Coordination Failures` | `Emergent Misalignment`
 
-Survey covering emergent behaviors in multi-agent systems including collusion and coordination failures
+**Abstract:** Survey of emergent behaviors in multi-agent systems including unintended collusion, coordination failures, and complex emergent dynamics.
 
 ---
 
@@ -310,9 +298,9 @@ Survey covering emergent behaviors in multi-agent systems including collusion an
 
 📄 [Paper](https://arxiv.org/abs/2505.02077)
 
-`Multi-Agent` | **Category:** `Coordination Failures` | **Behavior:** `Emergent Misalignment` `Collusion`
+`Multi-Agent` | `Coordination Failures` | `Emergent Misalignment` `Collusion`
 
-Introduces multi-agent security as a distinct discipline addressing threats from interactions between intelligent agents
+**Abstract:** Introduces multi-agent security as distinct discipline addressing novel threats from intelligent agent interactions including cascading failures and covert coordination.
 
 ---
 
@@ -322,9 +310,9 @@ Introduces multi-agent security as a distinct discipline addressing threats from
 
 📄 [Paper](https://arxiv.org/abs/2510.14312)
 
-`Multi-Agent` `Benchmark` | **Focus:** `Safety` `Privacy` `Security`
+`Benchmark` | `Multi-Agent` | `Safety` `Privacy` `Security`
 
-Framework for fine-grained study on safety, privacy, and security in LLM-based multi-agent systems
+**Abstract:** Modular framework for fine-grained study of safety, privacy, and security in LLM-based multi-agent systems using blackboard architecture.
 
 ---
 
@@ -336,9 +324,9 @@ Framework for fine-grained study on safety, privacy, and security in LLM-based m
 
 🌐 [Website](https://alignment.anthropic.com/2025/automated-auditing/)
 
-`Detection` | **Method:** `Automated Auditing`
+`Detection` | `Automated Auditing`
 
-LLM-based auditing agents that autonomously carry out alignment auditing workflows to detect hidden objectives and misaligned behaviors
+**Abstract:** LLM-based auditing agents autonomously execute alignment auditing workflows to detect hidden objectives and misaligned behaviors in target models.
 
 ---
 
@@ -346,9 +334,9 @@ LLM-based auditing agents that autonomously carry out alignment auditing workflo
 
 📄 [Paper](https://arxiv.org/abs/2212.09251)
 
-`Detection` | **Method:** `Red Teaming`
+`Detection` | `Red Teaming`
 
-Automated discovery of undesirable behaviors including deception and power-seeking
+**Abstract:** Automated discovery of undesirable behaviors including deception and power-seeking through model-generated evaluation prompts.
 
 ---
 
@@ -358,9 +346,9 @@ Automated discovery of undesirable behaviors including deception and power-seeki
 
 📄 [Paper](https://arxiv.org/abs/2212.08073)
 
-`Mitigation` | **Method:** `Alignment Training`
+`Mitigation` | `Alignment Training`
 
-Self-supervised alignment method, though shown to be vulnerable to alignment faking
+**Abstract:** Self-supervised alignment using AI-generated feedback for harmlessness, though later research shows vulnerability to alignment faking.
 
 ---
 
@@ -368,9 +356,9 @@ Self-supervised alignment method, though shown to be vulnerable to alignment fak
 
 📄 [Paper](https://arxiv.org/abs/2211.03540)
 
-`Mitigation` | **Method:** `Oversight`
+`Mitigation` | `Oversight`
 
-Methods for maintaining oversight as agents become more capable
+**Abstract:** Methods for maintaining effective human oversight as agents become increasingly capable and autonomous.
 
 ---
 
@@ -378,9 +366,9 @@ Methods for maintaining oversight as agents become more capable
 
 📄 [Paper](https://arxiv.org/abs/2510.05192)
 
-`Mitigation` | **Method:** `Control & Governance`
+`Mitigation` | `Control & Governance`
 
-Applies principles from insider-risk management to design operational controls that steer goal-directed agents toward safe actions
+**Abstract:** Applies insider-risk management principles to design operational controls steering goal-directed agents toward safe actions.
 
 ---
 
