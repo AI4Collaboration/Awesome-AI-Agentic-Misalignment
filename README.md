@@ -177,7 +177,7 @@ A curated collection of research on misaligned behavior of AI Agents, especially
 
 ### Power-Seeking
 
-**"Situational Awareness in LLMs"**
+**"Me, Myself, and AI: The Situational Awareness Dataset (SAD) for LLMs"**
 
 📄 [Paper](https://arxiv.org/abs/2407.04694)
 
@@ -243,47 +243,16 @@ A curated collection of research on misaligned behavior of AI Agents, especially
 
 ---
 
-**"Hidden Incentives for Auto-Induced Distributional Shift"**
-
-📄 [Paper](https://arxiv.org/abs/2009.09153)
-
-`Multi-Agent` | **Mechanism:** `Coordination Failures` | **Manifestation:** `Collusion`
-
-**Abstract:** Agents collude to induce distributional shifts that collectively benefit them while harming overall system objectives and human values.
-
----
 
 ### Competitive Escalation & Conflict
 
-**"Cooperative AI and the Tragedy of Cooperation"**
+**"Open Problems in Cooperative AI"**
 
 📄 [Paper](https://arxiv.org/abs/2012.08630)
 
 `Multi-Agent` | **Mechanism:** `Coordination Failures` | **Manifestation:** `Competitive Escalation`
 
 **Abstract:** Analysis of cooperation failures and competitive dynamics where agents with different goals escalate conflicts beyond beneficial levels.
-
----
-
-### Emergent Coordination Failures
-
-**"Emergent Deception and Emergent Optimization"**
-
-📄 [Paper](https://arxiv.org/abs/2307.04964)
-
-`Multi-Agent` | **Mechanism:** `Coordination Failures` | **Manifestation:** `Emergent Misalignment`
-
-**Abstract:** Multi-agent systems spontaneously develop deceptive behaviors and emergent coordination patterns that work against intended objectives.
-
----
-
-**"Multi-Agent Reinforcement Learning: A Selective Overview of Theories and Algorithms"**
-
-📄 [Paper](https://arxiv.org/abs/1911.10635)
-
-`Multi-Agent` | **Mechanism:** `Coordination Failures` | **Manifestation:** `Emergent Misalignment`
-
-**Abstract:** Survey of emergent behaviors in multi-agent systems including unintended collusion, coordination failures, and complex emergent dynamics.
 
 ---
 
@@ -345,7 +314,7 @@ A curated collection of research on misaligned behavior of AI Agents, especially
 
 ---
 
-**"Scalable Oversight for Advanced AI Systems"**
+**"Measuring Progress on Scalable Oversight for Large Language Models"**
 
 📄 [Paper](https://arxiv.org/abs/2211.03540)
 
@@ -355,7 +324,7 @@ A curated collection of research on misaligned behavior of AI Agents, especially
 
 ---
 
-**"Adapting Insider Risk Mitigations for Agentic Misalignment"**
+**"Adapting Insider Risk mitigations for Agentic Misalignment: an empirical study"**
 
 📄 [Paper](https://arxiv.org/abs/2510.05192)
 
