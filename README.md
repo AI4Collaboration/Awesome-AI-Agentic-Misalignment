@@ -95,7 +95,7 @@ A curated collection of research on misaligned behavior of AI Agents, especially
 
 **"Sabotage Evaluations for Frontier Models"**
 
-📄 [Paper](https://arxiv.org/abs/2410.13317)
+📄 [Paper](https://arxiv.org/abs/2410.21514)
 
 `Single-Agent` | **Mechanism:** `Deceptive Misalignment` | **Manifestation:** `Sandbagging`
 
@@ -105,7 +105,7 @@ A curated collection of research on misaligned behavior of AI Agents, especially
 
 **"Simple Probes Can Catch Sleeper Agents"**
 
-📄 [Paper](https://arxiv.org/abs/2410.08753)
+📄 [Paper](https://www.anthropic.com/research/probes-catch-sleeper-agents)
 
 `Single-Agent` `Detection` | **Mechanism:** `Deceptive Misalignment` | **Manifestation:** `Detection Methods`
 
@@ -167,7 +167,7 @@ A curated collection of research on misaligned behavior of AI Agents, especially
 
 **"Refusal-Trained LLMs Are Easily Jailbroken as Agents"**
 
-📄 [Paper](https://arxiv.org/abs/2410.03691)
+📄 [Paper](https://arxiv.org/abs/2410.13886)
 
 `Single-Agent` | **Mechanism:** `Goal Misalignment` | **Manifestation:** `Specification Gaming`
 
